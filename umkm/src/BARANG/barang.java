@@ -65,10 +65,7 @@ public class barang extends javax.swing.JFrame {
           
             Object[] rowData = {id_barang, jenis_barang, nama_barang, stok, hargaBeli, hargaJual, idPenjual};
             model.addRow(rowData);
-        }
-       
-//        rs.close();
-//        st.close();
+        }       
 
     } catch (SQLException e) {       
         Logger.getLogger(barang.class.getName()).log(Level.SEVERE, null, e);
@@ -91,10 +88,7 @@ public class barang extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        btn_hapus = new javax.swing.JButton();
-        btn_ubah = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        btn_tambah = new javax.swing.JButton();
         t_cari = new javax.swing.JTextField();
         btn_supplier = new javax.swing.JButton();
         btn_transaksibeli = new javax.swing.JButton();
@@ -158,55 +152,9 @@ public class barang extends javax.swing.JFrame {
         jLabel5.setText("harga jual");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 1124, 444, -1));
 
-        btn_hapus.setBackground(new java.awt.Color(0, 0, 0, 0)
-        );
-        btn_hapus.setBorder(null);
-        btn_hapus.setBorderPainted(false);
-        btn_hapus.setContentAreaFilled(false);
-        btn_hapus.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_hapusMouseClicked(evt);
-            }
-        });
-        btn_hapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_hapusActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_hapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 780, 90, 30));
-
-        btn_ubah.setBackground(new java.awt.Color(0, 0, 0, 0)
-        );
-        btn_ubah.setBorder(null);
-        btn_ubah.setBorderPainted(false);
-        btn_ubah.setContentAreaFilled(false);
-        btn_ubah.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_ubahMouseClicked(evt);
-            }
-        });
-        btn_ubah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ubahActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_ubah, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 780, 100, 32));
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("harga beli");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 1188, 444, -1));
-
-        btn_tambah.setBackground(new java.awt.Color(0, 0, 0, 0)
-        );
-        btn_tambah.setBorder(null);
-        btn_tambah.setBorderPainted(false);
-        btn_tambah.setContentAreaFilled(false);
-        btn_tambah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_tambahActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_tambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 780, 100, 30));
 
         t_cari.setBackground(new java.awt.Color(217, 217, 217));
         t_cari.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -323,29 +271,9 @@ public class barang extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambahActionPerformed
-      
-    }//GEN-LAST:event_btn_tambahActionPerformed
-
-    private void btn_ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ubahActionPerformed
-   
-    }//GEN-LAST:event_btn_ubahActionPerformed
-
     private void tbl_dataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_dataMouseClicked
     
     }//GEN-LAST:event_tbl_dataMouseClicked
-
-    private void btn_hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hapusActionPerformed
-   
-    }//GEN-LAST:event_btn_hapusActionPerformed
-
-    private void btn_ubahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ubahMouseClicked
-      
-    }//GEN-LAST:event_btn_ubahMouseClicked
-
-    private void btn_hapusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_hapusMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_hapusMouseClicked
 
     private void btn_supplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_supplierActionPerformed
         SUPPLIER sp = new SUPPLIER();
@@ -464,15 +392,12 @@ private void searchData(String keyword) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cari;
-    private javax.swing.JButton btn_hapus;
     private javax.swing.JButton btn_laporanpemasukan;
     private javax.swing.JButton btn_laporanpengeluaran;
     private javax.swing.JButton btn_logout;
     private javax.swing.JButton btn_supplier;
-    private javax.swing.JButton btn_tambah;
     private javax.swing.JButton btn_transaksibeli;
     private javax.swing.JButton btn_transaksijual;
-    private javax.swing.JButton btn_ubah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

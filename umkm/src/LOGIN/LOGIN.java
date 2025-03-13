@@ -10,6 +10,7 @@ import koneksi.konek;
 
 public class LOGIN extends javax.swing.JFrame {
 private Connection conn;
+    private Object jtxtrfid;
     
     public LOGIN() {
         initComponents();
@@ -18,33 +19,24 @@ private Connection conn;
         getData();
 //        lb_showPassword.setVisible(true);
          lb_hidePassword.setVisible(false);
+         
     }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jtxtusername = new javax.swing.JTextField();
-        btnlogin = new javax.swing.JButton();
-        jtxpassword = new javax.swing.JPasswordField();
+        javax.swing.JButton btnlogin = new javax.swing.JButton();
         btn_lupasandi = new javax.swing.JButton();
+        jtxpassword = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         lb_hidePassword = new javax.swing.JLabel();
+        jtxtusername = new javax.swing.JTextField();
         lb_showPassword = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jtxtusername.setBackground(new java.awt.Color(217, 217, 217));
-        jtxtusername.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jtxtusername.setBorder(null);
-        jtxtusername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtusernameActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jtxtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 360, 310, 60));
 
         btnlogin.setBackground(new java.awt.Color(0, 0, 0, 0)
         );
@@ -57,12 +49,7 @@ private Connection conn;
                 btnloginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 660, 170, 60));
-
-        jtxpassword.setBackground(new java.awt.Color(217, 217, 217));
-        jtxpassword.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jtxpassword.setBorder(null);
-        getContentPane().add(jtxpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 520, 250, 60));
+        getContentPane().add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 600, 220, 50));
 
         btn_lupasandi.setBackground(new java.awt.Color(0, 0, 0, 0)
         );
@@ -74,7 +61,19 @@ private Connection conn;
                 btn_lupasandiActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_lupasandi, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 733, 180, 30));
+        getContentPane().add(btn_lupasandi, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 670, 180, 30));
+
+        jtxpassword.setEditable(false);
+        jtxpassword.setBackground(new java.awt.Color(217, 217, 217));
+        jtxpassword.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jtxpassword.setUI(null);
+        jtxpassword.setBorder(null);
+        jtxpassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxpasswordActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jtxpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 250, 60));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/Close Window.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +89,18 @@ private Connection conn;
                 lb_hidePasswordMouseClicked(evt);
             }
         });
-        getContentPane().add(lb_hidePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 530, 40, 40));
+        getContentPane().add(lb_hidePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 470, 40, 40));
+
+        jtxtusername.setBackground(new java.awt.Color(217, 217, 217));
+        jtxtusername.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jtxtusername.setUI(null);
+        jtxtusername.setBorder(null);
+        jtxtusername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtusernameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jtxtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 300, 60));
 
         lb_showPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/Eye.png"))); // NOI18N
         lb_showPassword.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -98,18 +108,49 @@ private Connection conn;
                 lb_showPasswordMouseClicked(evt);
             }
         });
-        getContentPane().add(lb_showPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 530, 40, 40));
+        getContentPane().add(lb_showPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 470, 40, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/LOGIN.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/LOGIN_1.png"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtxtusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtusernameActionPerformed
-        // TODO add your handling code here:
+                                         
+    String rfid = jtxtusername.getText().trim(); // Menghilangkan spasi tambahan
+
+    if (rfid.length() < 10) {
+        jtxtusername.setText(""); // Reset input
+        JOptionPane.showMessageDialog(this, "Scan error atau tidak terdata!");
+        return;
+    }
+    try {
+        String sql = "SELECT * FROM akun WHERE rfid = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, rfid);
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            String storedRfid = rs.getString("rfid");
+            
+            if (rfid.equals(storedRfid)) {
+                barang halut = new barang();
+                halut.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "RFID tidak valid!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "RFID tidak ditemukan!");
+        }
+
+    } catch (Exception e) {
+        System.err.println("General Error: " + e.getMessage());
+        JOptionPane.showMessageDialog(this, "Terjadi kesalahan. Silakan coba lagi.");
+    }
     }//GEN-LAST:event_jtxtusernameActionPerformed
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
@@ -170,6 +211,10 @@ try (PreparedStatement stmt = conn.prepareStatement(sql)) {
         jtxpassword.setEchoChar('*');
         
     }//GEN-LAST:event_lb_hidePasswordMouseClicked
+
+    private void jtxpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxpasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxpasswordActionPerformed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -203,7 +248,6 @@ try (PreparedStatement stmt = conn.prepareStatement(sql)) {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_lupasandi;
-    private javax.swing.JButton btnlogin;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField jtxpassword;
@@ -272,6 +316,6 @@ try (PreparedStatement stmt = conn.prepareStatement(sql)) {
         JOptionPane.showMessageDialog(this, "Terjadi kesalahan pada koneksi.");
     }
 }
-    }
+}
 
 

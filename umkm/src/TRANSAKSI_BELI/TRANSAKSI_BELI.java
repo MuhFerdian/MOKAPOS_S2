@@ -412,129 +412,129 @@ public class TRANSAKSI_BELI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_hapusActionPerformed
 
     private void btn_tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambahActionPerformed
-String idtransaksi_beli = t_idtransaksipembelian.getText().trim();
-String jenis_barang = t_jenisbarang.getText().trim();
-String nama_barang = t_namabarang.getText().trim();
-String jumlah_barangStr = t_jumlahbarang.getText().trim();
-String hargaStr = t_hargabeli.getText().trim();
-java.util.Date selectedDate = jcalender_beli.getDate();
+    String idtransaksi_beli = t_idtransaksipembelian.getText().trim();
+    String jenis_barang = t_jenisbarang.getText().trim();
+    String nama_barang = t_namabarang.getText().trim();
+    String jumlah_barangStr = t_jumlahbarang.getText().trim();
+    String hargaStr = t_hargabeli.getText().trim();
+    java.util.Date selectedDate = jcalender_beli.getDate();
 
-if (selectedDate == null) {
-    JOptionPane.showMessageDialog(this, "Pilih tanggal terlebih dahulu!");
-    return;
-}
-
-String tanggalStr = new SimpleDateFormat("yyyy-MM-dd").format(selectedDate);
-
-if (idtransaksi_beli.isEmpty() || jenis_barang.isEmpty() || nama_barang.isEmpty() || jumlah_barangStr.isEmpty() || hargaStr.isEmpty()) {
-    JOptionPane.showMessageDialog(this, "Semua kolom harus diisi.");
-    return;
-}
-
-try {
-    int jumlah_barang = Integer.parseInt(jumlah_barangStr);
-    int hargaBeli = Integer.parseInt(hargaStr.replace("Rp ", "").trim());
-
-    if (jumlah_barang <= 0 || hargaBeli <= 0) {
-        JOptionPane.showMessageDialog(this, "Jumlah atau harga harus lebih besar dari 0.");
+    if (selectedDate == null) {
+        JOptionPane.showMessageDialog(this, "Pilih tanggal terlebih dahulu!");
         return;
     }
 
-    String selectedSupplier = (String) c_supplier.getSelectedItem();
-    if (selectedSupplier == null || selectedSupplier.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Pilih supplier terlebih dahulu!");
+    String tanggalStr = new SimpleDateFormat("yyyy-MM-dd").format(selectedDate);
+
+    if (idtransaksi_beli.isEmpty() || jenis_barang.isEmpty() || nama_barang.isEmpty() || jumlah_barangStr.isEmpty() || hargaStr.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Semua kolom harus diisi.");
         return;
     }
 
-    String sqlGetSupplierId = "SELECT id_supplier FROM supplier WHERE id_supplier = ?";
-    String idSupplier = "";
-    try (PreparedStatement pst = conn.prepareStatement(sqlGetSupplierId)) {
-        pst.setString(1, selectedSupplier);
-        ResultSet rs = pst.executeQuery();
-        if (rs.next()) {
-            idSupplier = rs.getString("id_supplier");
-        } else {
-            JOptionPane.showMessageDialog(this, "Supplier tidak ditemukan.");
+    try {
+        int jumlah_barang = Integer.parseInt(jumlah_barangStr);
+        int hargaBeli = Integer.parseInt(hargaStr.replace("Rp ", "").trim());
+
+        if (jumlah_barang <= 0 || hargaBeli <= 0) {
+            JOptionPane.showMessageDialog(this, "Jumlah atau harga harus lebih besar dari 0.");
             return;
         }
-    }
-        String idPedagang = "";
-        String sqlGetPedagangId = "SELECT id_pedagang FROM pedagang LIMIT 1";
-        try (PreparedStatement pstPedagang = conn.prepareStatement(sqlGetPedagangId)) {
-            ResultSet rs = pstPedagang.executeQuery();
+
+        String selectedSupplier = (String) c_supplier.getSelectedItem();
+        if (selectedSupplier == null || selectedSupplier.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Pilih supplier terlebih dahulu!");
+            return;
+        }
+
+        String sqlGetSupplierId = "SELECT id_supplier FROM supplier WHERE id_supplier = ?";
+        String idSupplier = "";
+        try (PreparedStatement pst = conn.prepareStatement(sqlGetSupplierId)) {
+            pst.setString(1, selectedSupplier);
+            ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                idPedagang = rs.getString("id_pedagang");
+                idSupplier = rs.getString("id_supplier");
             } else {
-                JOptionPane.showMessageDialog(this, "Pedagang tidak ditemukan.");
+                JOptionPane.showMessageDialog(this, "Supplier tidak ditemukan.");
                 return;
             }
         }
-
-    long idBarang = -1;
-    String sqlCheckBarang = "SELECT id_barang, stok, harga_beli FROM barang WHERE nama_barang = ? AND jenis_barang = ?";
-    try (PreparedStatement pstCheck = conn.prepareStatement(sqlCheckBarang)) {
-        pstCheck.setString(1, nama_barang);
-        pstCheck.setString(2, jenis_barang);
-        try (ResultSet rs = pstCheck.executeQuery()) {
-            if (rs.next()) {
-                idBarang = rs.getLong("id_barang");
-                int stokLama = rs.getInt("stok");
-                int hargaLama = rs.getInt("harga_beli");
-              
-                if (hargaLama != hargaBeli) {
-                    String sqlUpdateHarga = "UPDATE barang SET harga_beli = ? WHERE id_barang = ?";
-                    try (PreparedStatement pstUpdateHarga = conn.prepareStatement(sqlUpdateHarga)) {
-                        pstUpdateHarga.setInt(1, hargaBeli);
-                        pstUpdateHarga.setLong(2, idBarang);
-                        pstUpdateHarga.executeUpdate();
-                    }
+            String idPedagang = "";
+            String sqlGetPedagangId = "SELECT id_pedagang FROM pedagang LIMIT 1";
+            try (PreparedStatement pstPedagang = conn.prepareStatement(sqlGetPedagangId)) {
+                ResultSet rs = pstPedagang.executeQuery();
+                if (rs.next()) {
+                    idPedagang = rs.getString("id_pedagang");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Pedagang tidak ditemukan.");
+                    return;
                 }
-                
-            } else {               
-                String sqlInsertBarang = "INSERT INTO barang (nama_barang, jenis_barang, stok, harga_beli, id_pedagang) VALUES (?, ?, ?, ?, ?)";
-                try (PreparedStatement pstInsert = conn.prepareStatement(sqlInsertBarang, PreparedStatement.RETURN_GENERATED_KEYS)) {
-                    pstInsert.setString(1, nama_barang);
-                    pstInsert.setString(2, jenis_barang);
-                    pstInsert.setInt(3, jumlah_barang);
-                    pstInsert.setInt(4, hargaBeli);
-                    pstInsert.setString(5, idPedagang);
-                    pstInsert.executeUpdate();
+            }
 
-                    try (ResultSet generatedKeys = pstInsert.getGeneratedKeys()) {
-                        if (generatedKeys.next()) {
-                            idBarang = generatedKeys.getLong(1);
-                        } else {
-                            throw new SQLException("Gagal mendapatkan ID barang baru.");
+        long idBarang = -1;
+        String sqlCheckBarang = "SELECT id_barang, stok, harga_beli FROM barang WHERE nama_barang = ? AND jenis_barang = ?";
+        try (PreparedStatement pstCheck = conn.prepareStatement(sqlCheckBarang)) {
+            pstCheck.setString(1, nama_barang);
+            pstCheck.setString(2, jenis_barang);
+            try (ResultSet rs = pstCheck.executeQuery()) {
+                if (rs.next()) {
+                    idBarang = rs.getLong("id_barang");
+                    int stokLama = rs.getInt("stok");
+                    int hargaLama = rs.getInt("harga_beli");
+
+                    if (hargaLama != hargaBeli) {
+                        String sqlUpdateHarga = "UPDATE barang SET harga_beli = ? WHERE id_barang = ?";
+                        try (PreparedStatement pstUpdateHarga = conn.prepareStatement(sqlUpdateHarga)) {
+                            pstUpdateHarga.setInt(1, hargaBeli);
+                            pstUpdateHarga.setLong(2, idBarang);
+                            pstUpdateHarga.executeUpdate();
+                        }
+                    }
+
+                } else {               
+                    String sqlInsertBarang = "INSERT INTO barang (nama_barang, jenis_barang, stok, harga_beli, id_pedagang) VALUES (?, ?, ?, ?, ?)";
+                    try (PreparedStatement pstInsert = conn.prepareStatement(sqlInsertBarang, PreparedStatement.RETURN_GENERATED_KEYS)) {
+                        pstInsert.setString(1, nama_barang);
+                        pstInsert.setString(2, jenis_barang);
+                        pstInsert.setInt(3, jumlah_barang);
+                        pstInsert.setInt(4, hargaBeli);
+                        pstInsert.setString(5, idPedagang);
+                        pstInsert.executeUpdate();
+
+                        try (ResultSet generatedKeys = pstInsert.getGeneratedKeys()) {
+                            if (generatedKeys.next()) {
+                                idBarang = generatedKeys.getLong(1);
+                            } else {
+                                throw new SQLException("Gagal mendapatkan ID barang baru.");
+                            }
                         }
                     }
                 }
             }
         }
-    }
-    
-    String sqlInsertTransaksi = "INSERT INTO transaksi_beli (id_transaksi_pembelian, tanggal, id_supplier, id_barang, nama_barang, jenis_barang, harga_beli, jumlah_barang, total_harga) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    try (PreparedStatement pstTransaksi = conn.prepareStatement(sqlInsertTransaksi)) {
-        pstTransaksi.setString(1, idtransaksi_beli);
-        pstTransaksi.setDate(2, java.sql.Date.valueOf(tanggalStr));
-        pstTransaksi.setString(3, idSupplier);
-        pstTransaksi.setLong(4, idBarang);
-        pstTransaksi.setString(5, nama_barang);
-        pstTransaksi.setString(6, jenis_barang);
-        pstTransaksi.setInt(7, hargaBeli);
-        pstTransaksi.setInt(8, jumlah_barang);
-        pstTransaksi.setInt(9, hargaBeli * jumlah_barang);
-        pstTransaksi.executeUpdate();
-    }
 
-    getData();
-    JOptionPane.showMessageDialog(this, "Transaksi berhasil ditambahkan.");
-    resetForm();
+        String sqlInsertTransaksi = "INSERT INTO transaksi_beli (id_transaksi_pembelian, tanggal, id_supplier, id_barang, nama_barang, jenis_barang, harga_beli, jumlah_barang, total_harga) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement pstTransaksi = conn.prepareStatement(sqlInsertTransaksi)) {
+            pstTransaksi.setString(1, idtransaksi_beli);
+            pstTransaksi.setDate(2, java.sql.Date.valueOf(tanggalStr));
+            pstTransaksi.setString(3, idSupplier);
+            pstTransaksi.setLong(4, idBarang);
+            pstTransaksi.setString(5, nama_barang);
+            pstTransaksi.setString(6, jenis_barang);
+            pstTransaksi.setInt(7, hargaBeli);
+            pstTransaksi.setInt(8, jumlah_barang);
+            pstTransaksi.setInt(9, hargaBeli * jumlah_barang);
+            pstTransaksi.executeUpdate();
+        }
 
-} catch (NumberFormatException ex) {
-    JOptionPane.showMessageDialog(this, "Format jumlah atau harga salah.");
-} catch (SQLException ex) {
-    JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat menambahkan data: " + ex.getMessage());
-}
+        getData();
+        JOptionPane.showMessageDialog(this, "Transaksi berhasil ditambahkan.");
+        resetForm();
+
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "Format jumlah atau harga salah.");
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat menambahkan data: " + ex.getMessage());
+    }
 
     }//GEN-LAST:event_btn_tambahActionPerformed
 

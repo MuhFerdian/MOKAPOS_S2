@@ -14,7 +14,7 @@ public class konek {
     public static Connection koneksi() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/toko_kelontong_2";
+            String url = "jdbc:mysql://localhost:3306/toko_kelontong";
             String user = "root";
             String password = "";
             conn = DriverManager.getConnection(url, user, password);

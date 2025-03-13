@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/NetBeansProjects/umkm/src/BARANG/barang.java</file>
-            <file>file:/D:/NetBeansProjects/umkm/src/LOGIN/LOGIN.java</file>
-            <file>file:/D:/NetBeansProjects/umkm/src/LAPORAN_PENGELUARAN/laporan_pengeluaran.java</file>
-            <file>file:/D:/NetBeansProjects/umkm/src/LAPORAN_PEMASUKAN/laporan_pemasukan.java</file>
-            <file>file:/D:/NetBeansProjects/umkm/src/koneksi/konek.java</file>
+            <file>file:/C:/Users/POLIJE/Documents/GitHub/MOKAPOS_S2/umkm/src/koneksi/konek.java</file>
+            <file>file:/C:/Users/POLIJE/Documents/GitHub/MOKAPOS_S2/umkm/src/TRANSAKSI_JUAL/TRANSAKSI_JUAL.java</file>
+            <file>file:/C:/Users/POLIJE/Documents/GitHub/MOKAPOS_S2/umkm/src/Dashboard/Dashboard.java</file>
+            <file>file:/C:/Users/POLIJE/Documents/GitHub/MOKAPOS_S2/umkm/src/LAPORAN_PEMASUKAN/laporan_pemasukan.java</file>
+            <file>file:/C:/Users/POLIJE/Documents/GitHub/MOKAPOS_S2/umkm/src/TRANSAKSI_BELI/TRANSAKSI_BELI.java</file>
+            <file>file:/C:/Users/POLIJE/Documents/GitHub/MOKAPOS_S2/umkm/src/BARANG/barang.java</file>
+            <file>file:/C:/Users/POLIJE/Documents/GitHub/MOKAPOS_S2/umkm/src/LOGIN/LOGIN.java</file>
+            <file>file:/C:/Users/POLIJE/Documents/GitHub/MOKAPOS_S2/umkm/src/LAPORAN_PENGELUARAN/laporan_pengeluaran.java</file>
         </group>
     </open-files>
 </project-private>
