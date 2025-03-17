@@ -80,15 +80,11 @@ public class barang extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_data = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         t_cari = new javax.swing.JTextField();
         btn_supplier = new javax.swing.JButton();
         btn_transaksibeli = new javax.swing.JButton();
@@ -99,9 +95,17 @@ public class barang extends javax.swing.JFrame {
         btn_logout = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setText("jenis barang");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("nama_barang");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 832));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1280, 832));
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 832));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -130,108 +134,74 @@ public class barang extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbl_data);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 940, 450));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("id barang");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 853, 444, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("nama_barang");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 914, 444, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("stok");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 1050, 444, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("jenis barang");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 977, 444, -1));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("harga jual");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 1124, 444, -1));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("harga beli");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 1188, 444, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 860, 280));
 
         t_cari.setBackground(new java.awt.Color(217, 217, 217));
         t_cari.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         t_cari.setBorder(null);
+        t_cari.setFocusCycleRoot(true);
         t_cari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_cariActionPerformed(evt);
             }
         });
-        jPanel1.add(t_cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 290, 130, 20));
+        jPanel1.add(t_cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 220, 50));
 
         btn_supplier.setBackground(new java.awt.Color(0,0,0,0));
-        btn_supplier.setBorder(null);
-        btn_supplier.setBorderPainted(false);
-        btn_supplier.setContentAreaFilled(false);
+        btn_supplier.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_supplier.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btn_supplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_supplierActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_supplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 130, 40));
+        jPanel1.add(btn_supplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 650, 100, 40));
 
         btn_transaksibeli.setBackground(new java.awt.Color(0, 0, 0, 0)
         );
-        btn_transaksibeli.setBorder(null);
-        btn_transaksibeli.setBorderPainted(false);
-        btn_transaksibeli.setContentAreaFilled(false);
+        btn_transaksibeli.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_transaksibeli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_transaksibeliActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_transaksibeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 150, 60));
+        jPanel1.add(btn_transaksibeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 640, 80, 60));
 
         btn_transaksijual.setBackground(new java.awt.Color(0, 0, 0, 0)
         );
-        btn_transaksijual.setBorder(null);
-        btn_transaksijual.setBorderPainted(false);
-        btn_transaksijual.setContentAreaFilled(false);
+        btn_transaksijual.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_transaksijual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_transaksijualActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_transaksijual, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 160, 60));
+        jPanel1.add(btn_transaksijual, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 640, 80, 60));
 
         btn_laporanpemasukan.setBackground(new java.awt.Color(0, 0, 0, 0)
         );
-        btn_laporanpemasukan.setBorder(null);
-        btn_laporanpemasukan.setBorderPainted(false);
-        btn_laporanpemasukan.setContentAreaFilled(false);
+        btn_laporanpemasukan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_laporanpemasukan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_laporanpemasukanActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_laporanpemasukan, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 550, 140, 60));
+        jPanel1.add(btn_laporanpemasukan, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 630, 130, 60));
 
         btn_laporanpengeluaran.setBackground(new java.awt.Color(0, 0, 0, 0)
         );
-        btn_laporanpengeluaran.setBorder(null);
-        btn_laporanpengeluaran.setBorderPainted(false);
-        btn_laporanpengeluaran.setContentAreaFilled(false);
+        btn_laporanpengeluaran.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_laporanpengeluaran.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_laporanpengeluaranActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_laporanpengeluaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 650, 170, 60));
+        jPanel1.add(btn_laporanpengeluaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 630, 140, 60));
 
         btn_cari.setBackground(new java.awt.Color(0, 0, 0, 0)
         );
         btn_cari.setForeground(new java.awt.Color(0, 0, 0, 0)
         );
-        btn_cari.setBorder(null);
-        btn_cari.setBorderPainted(false);
+        btn_cari.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_cari.setContentAreaFilled(false);
         btn_cari.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         btn_cari.addActionListener(new java.awt.event.ActionListener() {
@@ -239,32 +209,38 @@ public class barang extends javax.swing.JFrame {
                 btn_cariActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 280, 90, 40));
+        jPanel1.add(btn_cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, 120, 40));
 
         btn_logout.setBackground(new java.awt.Color(0, 0, 0, 0)
         );
-        btn_logout.setBorder(null);
-        btn_logout.setBorderPainted(false);
-        btn_logout.setContentAreaFilled(false);
+        btn_logout.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_logoutActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 760, 110, 40));
+        jPanel1.add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 650, 70, 40));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/BARANG.jpg"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/BARANG_1.png"))); // NOI18N
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
+        jLabel7.getAccessibleContext().setAccessibleName("");
+        jLabel7.getAccessibleContext().setAccessibleParent(jLabel7);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -398,12 +374,8 @@ private void searchData(String keyword) {
     private javax.swing.JButton btn_supplier;
     private javax.swing.JButton btn_transaksibeli;
     private javax.swing.JButton btn_transaksijual;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

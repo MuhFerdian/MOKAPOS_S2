@@ -67,7 +67,6 @@ private Connection conn;
         jtxpassword.setBackground(new java.awt.Color(217, 217, 217));
         jtxpassword.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jtxpassword.setUI(null);
-        jtxpassword.setBorder(null);
         jtxpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxpasswordActionPerformed(evt);
@@ -94,7 +93,6 @@ private Connection conn;
         jtxtusername.setBackground(new java.awt.Color(217, 217, 217));
         jtxtusername.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jtxtusername.setUI(null);
-        jtxtusername.setBorder(null);
         jtxtusername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxtusernameActionPerformed(evt);
@@ -110,7 +108,7 @@ private Connection conn;
         });
         getContentPane().add(lb_showPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 470, 40, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/LOGIN_1.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GAMBAR/LOGIN.png"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
